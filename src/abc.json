@@ -1,0 +1,21 @@
+const obj=[
+    {isin:"MSFT", high:392, low:390.5, date:"01-DEC-2023"},
+    {isin:"APPL", high:191, low:190.5, date:"01-DEC-2023"},
+    {isin:"NVDA", high:474, low:432.5, date:"01-DEC-2023"},
+    
+    {isin:"MSFT", high:394, low:389.5, date:"02-DEC-2023"},
+    {isin:"APPL", high:192, low:185.5, date:"02-DEC-2023"},
+    {isin:"NVDA", high:489, low:475, date:"02-DEC-2023"},
+    
+    {isin:"MSFT", high:386, low:380.5, date:"03-DEC-2023"},
+    {isin:"APPL", high:195, low:192, date:"03-DEC-2023"},
+    {isin:"NVDA", high:455, low:430, date:"03-DEC-2023"},
+]
+
+
+// output
+[
+    {date:'01-Dec-2023', MSFT:{high, low}, APPL:{high, low}, NVDA:{high, low}},
+    {date:'02-Dec-2023', MSFT:{high, low}, APPL:{high, low}, NVDA:{high, low}},
+    {date:'03-Dec-2023', MSFT:{high, low}, APPL:{high, low}, NVDA:{high, low}}
+]

@@ -2,4 +2,10 @@ body {
   font-family: sans-serif;
 }
 
+pre {
+  color: #bada55;
+  background-color: #1d1d1d;
+  padding: 8px;
+}
+
 /*# sourceMappingURL=index.4d663569.css.map */
