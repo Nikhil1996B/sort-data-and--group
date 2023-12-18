@@ -13,16 +13,12 @@ const obj = [
   { isin: "APPL", high: 195, low: 192, date: "03-DEC-2023" },
   { isin: "NVDA", high: 455, low: 430, date: "03-DEC-2023" },
 ];
-const isDataPresent = (data, key, value) =>
-  data.some((filter) => filter[key] == value);
-
 const output = obj.reduce((acc, curr) => {
   const { isin, date, high, low } = curr;
-  if (isDataPresent(acc, "date", date)) {
+  const targetIndex = acc.findIndex((filter) => filter?.date === date);
+  if (targetIndex > -1) {
     let updatedItem = acc.find((filter) => filter?.date === date);
-    console.log(updatedItem);
     updatedItem = { ...updatedItem, [isin]: { high, low } };
-    const targetIndex = acc.findIndex((filter) => filter?.date === date);
     acc[targetIndex] = updatedItem;
     return acc;
   } else {
@@ -33,6 +29,6 @@ const output = obj.reduce((acc, curr) => {
     return acc;
   }
 }, []);
-console.log(output);
+
 const displayOutput = document.getElementById("output");
 displayOutput.innerHTML = JSON.stringify(output || [], null, 4);

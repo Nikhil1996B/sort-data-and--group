@@ -632,12 +632,11 @@ const obj = [
         date: "03-DEC-2023"
     }
 ];
-const isDataPresent = (data, key, value)=>data.some((filter)=>filter[key] == value);
 const output = obj.reduce((acc, curr)=>{
     const { isin, date, high, low } = curr;
-    if (isDataPresent(acc, "date", date)) {
+    const targetIndex = acc.findIndex((filter)=>filter?.date === date);
+    if (targetIndex > -1) {
         let updatedItem = acc.find((filter)=>filter?.date === date);
-        console.log(updatedItem);
         updatedItem = {
             ...updatedItem,
             [isin]: {
@@ -645,7 +644,6 @@ const output = obj.reduce((acc, curr)=>{
                 low
             }
         };
-        const targetIndex = acc.findIndex((filter)=>filter?.date === date);
         acc[targetIndex] = updatedItem;
         return acc;
     } else {
@@ -659,7 +657,6 @@ const output = obj.reduce((acc, curr)=>{
         return acc;
     }
 }, []);
-console.log(output);
 const displayOutput = document.getElementById("output");
 displayOutput.innerHTML = JSON.stringify(output || [], null, 4);
 
